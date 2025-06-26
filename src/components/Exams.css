@@ -1,0 +1,735 @@
+/* Exams Component Styles */
+.exams-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.exams-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.exams-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #d4af37;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+}
+
+.exams-subtitle {
+  font-size: 1.125rem;
+  color: #c4b5a0;
+  font-weight: 400;
+}
+
+/* Sections Container */
+.sections-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* Exam Section */
+.exam-section {
+  background: rgba(139, 116, 165, 0.05);
+  border: 1px solid rgba(139, 116, 165, 0.15);
+  border-radius: 24px;
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.exam-section:hover {
+  background: rgba(139, 116, 165, 0.08);
+  border-color: rgba(139, 116, 165, 0.25);
+}
+
+/* Section Header */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(139, 116, 165, 0.2);
+}
+
+.section-icon {
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.section-info {
+  flex: 1;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #e8e3d3;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: #c4b5a0;
+  font-weight: 500;
+}
+
+.section-count {
+  padding: 0.75rem 1.5rem;
+  background: rgba(212, 175, 55, 0.2);
+  color: #d4af37;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Exams Grid */
+.exams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.exam-card {
+  background: rgba(139, 116, 165, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(139, 116, 165, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.exam-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+  transition: left 0.6s;
+}
+
+.exam-card:hover::before {
+  left: 100%;
+}
+
+.exam-card:hover:not(.coming-soon) {
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(139, 116, 165, 0.15);
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(212, 175, 55, 0.2);
+}
+
+.exam-card.coming-soon {
+  opacity: 0.7;
+  background: rgba(139, 116, 165, 0.05);
+}
+
+.exam-card.coming-soon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(139, 116, 165, 0.1) 10px,
+    rgba(139, 116, 165, 0.1) 20px
+  );
+  pointer-events: none;
+}
+
+/* Card Header */
+.exam-card-header {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.year-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(135deg, #8b74a5 0%, #6b5b73 100%);
+  color: #e8e3d3;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 15px rgba(139, 116, 165, 0.3);
+  letter-spacing: 0.05em;
+}
+
+.exam-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #e8e3d3;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.5rem;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(139, 116, 165, 0.3);
+  color: #8b74a5;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Exam Actions */
+.exam-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.exam-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.025em;
+  border: 1px solid transparent;
+}
+
+.btn-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.exam-btn:hover:not(.disabled) .btn-icon {
+  transform: scale(1.1);
+}
+
+.exam-btn-paper {
+  background: linear-gradient(135deg, #6b5b73 0%, #5d4e75 100%);
+  color: #e8e3d3;
+  box-shadow: 0 4px 15px rgba(107, 91, 115, 0.3);
+}
+
+.exam-btn-paper:hover:not(.disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(107, 91, 115, 0.4);
+  background: linear-gradient(135deg, #5d4e75 0%, #4a3c5a 100%);
+}
+
+.exam-btn-key {
+  background: linear-gradient(135deg, #8b6914 0%, #a0751a 100%);
+  color: #e8e3d3;
+  box-shadow: 0 4px 15px rgba(139, 105, 20, 0.3);
+}
+
+.exam-btn-key:hover:not(.disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 105, 20, 0.4);
+  background: linear-gradient(135deg, #a0751a 0%, #b8841f 100%);
+}
+
+.exam-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: rgba(139, 116, 165, 0.2) !important;
+  color: #8b74a5 !important;
+  box-shadow: none !important;
+}
+
+/* Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out both;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sections-container {
+    gap: 3rem;
+  }
+
+  .exam-section {
+    padding: 2rem;
+  }
+
+  .section-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .section-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+
+  .exams-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .exam-card {
+    padding: 1.5rem;
+  }
+
+  .exam-actions {
+    flex-direction: column;
+  }
+
+  .exam-btn {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .exam-section {
+    padding: 1.5rem;
+  }
+
+  .exam-card {
+    padding: 1.25rem;
+  }
+
+  .exam-btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Focus states for accessibility */
+.exam-btn:focus {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
+
+.exam-btn:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Exam Info Section */
+.exam-info {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.info-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: rgba(139, 116, 165, 0.15);
+  border: 1px solid rgba(139, 116, 165, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.info-icon {
+  font-size: 1.25rem;
+}
+
+.info-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #c4b5a0;
+}
+
+/* Non-Medical Year Badge Variant */
+.year-badge.non-medical {
+  background: linear-gradient(135deg, #6b5b73 0%, #8b74a5 100%);
+  color: #e8e3d3;
+  box-shadow: 0 4px 15px rgba(107, 91, 115, 0.4);
+}
+
+/* Exam Note Section */
+.exam-note {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: rgba(139, 116, 165, 0.08);
+  border: 1px solid rgba(139, 116, 165, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.note-content {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.note-icon {
+  width: 2rem;
+  height: 2rem;
+  color: #d4af37;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.note-text h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e8e3d3;
+  margin-bottom: 0.75rem;
+}
+
+.note-text p {
+  color: #c4b5a0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .exam-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-badge {
+    justify-content: center;
+    min-width: 200px;
+  }
+
+  .note-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .note-icon {
+    align-self: center;
+    margin-top: 0;
+  }
+}
+
+/* JBT Year Badge Variant */
+.year-badge.jbt {
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  color: #e8e3d3;
+  box-shadow: 0 4px 15px rgba(74, 85, 104, 0.4);
+}
+
+/* Session Badge */
+.session-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(212, 175, 55, 0.2);
+  color: #d4af37;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Exam Stats Section */
+.exam-stats {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: rgba(139, 116, 165, 0.08);
+  border: 1px solid rgba(139, 116, 165, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(139, 116, 165, 0.1);
+  border: 1px solid rgba(139, 116, 165, 0.2);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-2px);
+  background: rgba(139, 116, 165, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.stat-info h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e8e3d3;
+  margin-bottom: 0.25rem;
+}
+
+.stat-info p {
+  font-size: 0.875rem;
+  color: #c4b5a0;
+  font-weight: 500;
+}
+
+/* Responsive adjustments for stats */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .stat-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem 0.75rem;
+  }
+
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+}
+
+/* HPTET Year Badge Variant */
+.year-badge.hptet {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+}
+
+/* HPTET Session Badge */
+.session-badge.hptet-session {
+  background: rgba(37, 99, 235, 0.2);
+  color: #2563eb;
+  border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
+/* Exam Subjects Section */
+.exam-subjects {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: rgba(139, 116, 165, 0.08);
+  border: 1px solid rgba(139, 116, 165, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.subjects-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e8e3d3;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.subject-card {
+  background: rgba(139, 116, 165, 0.1);
+  border: 1px solid rgba(139, 116, 165, 0.2);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.subject-card:hover {
+  transform: translateY(-4px);
+  background: rgba(139, 116, 165, 0.15);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.subject-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.subject-card h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #e8e3d3;
+  margin-bottom: 0.75rem;
+}
+
+.subject-card p {
+  font-size: 0.875rem;
+  color: #c4b5a0;
+  line-height: 1.5;
+}
+
+/* Responsive adjustments for subjects */
+@media (max-width: 768px) {
+  .subjects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .subject-card {
+    padding: 1.25rem;
+  }
+
+  .subject-icon {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .subjects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* HPTET JBT Year Badge Variant */
+.year-badge.hptet-jbt {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
+}
+
+/* HPTET JBT Session Badge */
+.session-badge.hptet-jbt-session {
+  background: rgba(5, 150, 105, 0.2);
+  color: #059669;
+  border: 1px solid rgba(5, 150, 105, 0.3);
+}
+
+/* Exam Comparison Section */
+.exam-comparison {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: rgba(139, 116, 165, 0.08);
+  border: 1px solid rgba(139, 116, 165, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.comparison-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e8e3d3;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.comparison-card {
+  background: rgba(139, 116, 165, 0.1);
+  border: 1px solid rgba(139, 116, 165, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.comparison-card:hover {
+  transform: translateY(-4px);
+  background: rgba(139, 116, 165, 0.15);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.comparison-card h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e8e3d3;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(139, 116, 165, 0.2);
+}
+
+.comparison-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.comparison-card li {
+  padding: 0.5rem 0;
+  color: #c4b5a0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.comparison-card li:not(:last-child) {
+  border-bottom: 1px solid rgba(139, 116, 165, 0.1);
+}
+
+/* Responsive adjustments for comparison */
+@media (max-width: 768px) {
+  .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .comparison-card {
+    padding: 1.5rem;
+  }
+}
