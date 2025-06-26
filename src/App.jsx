@@ -164,7 +164,7 @@ function App() {
         <div className="sidebar-footer">
           <div className="footer-info">
             <p className="footer-text">© 2025 HP Exam Portal</p>
-            <p className="footer-subtext">Not a Official Site of Hp Govt, Owner Shashank</p>
+            <p className="footer-subtext">Not a Official Site of Hp Govt</p>
           </div>
         </div>
       </nav>
